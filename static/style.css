@@ -1,12 +1,14 @@
 /* style.css */
 
 body {
-  background-color: #f2f2f2;
+  background-image: linear-gradient(135deg, #b19cd9, #83d7e3);
   font-family: Arial, sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
@@ -136,28 +138,6 @@ button#login-button:hover {
   color: #333;
 }
 
-/* Add some colors */
-
-body {
-  background-image: linear-gradient(135deg, #b19cd9, #83d7e3);
-}
-
-.container {
-  background-color: #ffffff;
-}
-
-button#signup-button,
-button#login-button {
-  background-color: #e6eaf0;
-  color: #343a40;
-  border: 1px solid #ccc;
-}
-
-button#signup-button:hover,
-button#login-button:hover {
-  background-color: #d4d8e1;
-}
-
 .hero {
   text-align: center;
   padding: 100px 0;
@@ -233,4 +213,49 @@ footer {
 
 .home-link:hover {
   background-color: #1c1f23;
+}
+
+/* Additional styles for the main page */
+
+.navbar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 10px;
+}
+
+.navbar-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.navbar-links a:hover {
+  background-color: #1c1f23;
+}
+
+.home-section {
+  text-align: center;
+  padding: 100px 0;
+}
+
+.home-heading {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.home-description {
+  font-size: 20px;
+  margin-bottom: 40px;
+  color: #fff;
 }
