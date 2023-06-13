@@ -23,6 +23,14 @@ app.get('/login', (req,res)=>{
     res.sendFile(path.join(__dirname, "views/login.html"));
 });
 
+app.post('/formLogin', (req,res)=>{
+    res.sendFile(path.join(__dirname, "views/main.html"));
+});
+
+app.post('/formSignup', (req,res)=>{
+    res.redirect('/login');
+});
+
 //set up listen
 app.listen(port, ()=>{
     console.log("server is running on port", port);

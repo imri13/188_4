@@ -18,7 +18,7 @@ function togglePasswordVisibility(event) {
     if (event.type === 'mousedown') {
       passwordInput.type = 'text';
       eyeIcon.classList.add('active');
-    } else if (event.type === 'mouseup' || event.type === 'mouseout') {
+    } else if (event.type === 'mouseup') {
       passwordInput.type = 'password';
       eyeIcon.classList.remove('active');
     }
