@@ -9,9 +9,15 @@
     <title>Sign Up</title>
 </head>
 <body>
+    <a href="/" class="home-link">Home</a>
     <div class="container">
         <h1>Sign Up</h1>
         <form id="signup-form" action="/formSignup" method="POST">
+            <div class="form-group">
+                <label for="userName">Name</label>
+                <input type="text" id="userName" name="userName" required>
+            </div>
+
             <div class="form-group">
                 <label for="userEmail">Email</label>
                 <input type="email" id="userEmail" name="userEmail" required>
@@ -19,7 +25,10 @@
 
             <div class="form-group">
                 <label for="userPassword">Password</label>
-                <input type="password" id="userPassword" name="userPassword" required>
+                <div class="password-wrapper">
+                    <input type="password" id="userPassword" name="userPassword" required>
+                    <i class="toggle-password fas fa-eye" onmousedown="togglePasswordVisibility(event)" onmouseup="togglePasswordVisibility(event)"></i>
+                </div>
             </div>
 
             <button type="submit">Sign Up</button>

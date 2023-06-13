@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 //routing
 app.get('/', (req,res)=>{
-    res.sendFile(path.join(__dirname, "views/login.html"));
+    res.sendFile(path.join(__dirname, "views/index.html"));
 });
 
 app.get('/signUp', (req,res)=>{

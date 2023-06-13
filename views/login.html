@@ -9,6 +9,7 @@
     <title>Login</title>
 </head>
 <body>
+    <a href="/" class="home-link">Home</a>
     <div class="container">
         <h1>Login</h1>
         <form id="login-form" action="/formLogin" method="POST">
@@ -19,7 +20,10 @@
 
             <div class="form-group">
                 <label for="userPassword">Password</label>
-                <input type="password" id="userPassword" name="userPassword" required>
+                <div class="password-wrapper">
+                    <input type="password" id="userPassword" name="userPassword" required>
+                    <i class="toggle-password fas fa-eye" onmousedown="togglePasswordVisibility(event)" onmouseup="togglePasswordVisibility(event)"></i>
+                </div>
             </div>
 
             <button type="submit">Login</button>
