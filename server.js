@@ -27,8 +27,20 @@ app.post('/formLogin', (req,res)=>{
     res.sendFile(path.join(__dirname, "views/main.html"));
 });
 
+app.get('/main', (req,res)=>{
+    res.sendFile(path.join(__dirname, "views/main.html"));
+});
+
+app.get('/myPlaces', (req,res)=>{
+    res.sendFile(path.join(__dirname, "views/myPlaces.html"));
+});
+
 app.post('/formSignup', (req,res)=>{
     res.redirect('/login');
+});
+
+app.post('/mainForm', (req,res)=>{
+    res.sendFile(path.join(__dirname, "views/results.html"));
 });
 
 //set up listen

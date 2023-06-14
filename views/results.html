@@ -1,0 +1,71 @@
+<!-- results.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Results</title>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="navbar-links">
+      <a href="/">Log Out</a>
+      <a href="/main">Main</a>
+      <a href="/myPlaces">My Places</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Recommendations</h1>
+    
+    <div class="activity">
+      <h2>Activity 1</h2>
+      <div class="places">
+        <div class="place">
+          <h3>Place 1</h3>
+          <a href="https://www.google.com/search?q=Place+1" target="_blank">
+            <img src="place1.jpg" alt="Place 1">
+          </a>
+          <button class="heart-button" onclick="toggleFavorite(this)"></button>
+        </div>
+        <div class="place">
+          <h3>Place 2</h3>
+          <a href="https://www.google.com/search?q=Place+2" target="_blank">
+            <img src="place2.jpg" alt="Place 2">
+          </a>
+          <button class="heart-button" onclick="toggleFavorite(this)"></button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="activity">
+      <h2>Activity 2</h2>
+      <div class="places">
+        <div class="place">
+          <h3>Place 3</h3>
+          <a href="https://www.google.com/search?q=Place+3" target="_blank">
+            <img src="place3.jpg" alt="Place 3">
+          </a>
+          <button class="heart-button" onclick="toggleFavorite(this)"></button>
+        </div>
+        <div class="place">
+          <h3>Place 4</h3>
+          <a href="https://www.google.com/search?q=Place+4" target="_blank">
+            <img src="place4.jpg" alt="Place 4">
+          </a>
+          <button class="heart-button" onclick="toggleFavorite(this)"></button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Add more activities here -->
+    
+  </div>
+</body>
+
+</html>

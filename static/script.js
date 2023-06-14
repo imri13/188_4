@@ -22,4 +22,10 @@ function togglePasswordVisibility(event) {
       passwordInput.type = 'password';
       eyeIcon.classList.remove('active');
     }
-  }
+}
+
+// FUnction to fill the heart
+function toggleFavorite(button) {
+    button.classList.toggle("filled");
+}
+    

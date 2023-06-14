@@ -74,7 +74,7 @@ button[type="submit"]:hover {
 }
 
 button#signup-button {
-  width: 20%;
+  width: fit-content;
   padding: 5px;
   background-color: #f2f2f2;
   color: #343a40;
@@ -86,7 +86,7 @@ button#signup-button {
 }
 
 button#login-button {
-  width: 50%;
+  width: fit-content;
   padding: 5px;
   background-color: #f2f2f2;
   color: #343a40;
@@ -100,6 +100,16 @@ button#login-button {
 button#signup-button:hover,
 button#login-button:hover {
   background-color: #e1e1e1;
+}
+
+.signup-container, .login-container {
+  display: flex;
+  align-items: center;
+}
+
+.signup-text, .login-text {
+  margin-right: 10px;
+  margin-top: 25px;
 }
 
 .password-wrapper {
@@ -217,6 +227,8 @@ footer {
 
 /* Additional styles for the main page */
 
+/* Additions for the navbar */
+
 .navbar {
   position: absolute;
   top: 10px;
@@ -243,6 +255,7 @@ footer {
   background-color: #1c1f23;
 }
 
+
 .home-section {
   text-align: center;
   padding: 100px 0;
@@ -259,3 +272,101 @@ footer {
   margin-bottom: 40px;
   color: #fff;
 }
+
+/* Style the options and partners lists */
+.form-group select {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #f2f2f2;
+  color: #343a40;
+  text-align-last: right;
+  direction: rtl;
+}
+
+/* Style the options and partners list options */
+.form-group select option {
+  background-color: #fff;
+  color: #343a40;
+  text-align: right;
+  direction: rtl;
+  padding-right: 20px; /* Adjust the padding to move the text to the left */
+}
+
+/* Additions for the results page */
+
+.activity {
+  margin-bottom: 20px;
+}
+
+.places {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.place {
+  text-align: center;
+}
+
+.place h3 {
+  margin-bottom: 10px;
+}
+
+.place img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.place a {
+  text-decoration: none;
+  color: #343a40;
+}
+
+.place a:hover {
+  color: #1c1f23;
+}
+
+
+/* Additions */
+
+.container {
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.activity {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.activity h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+/* style.css */
+
+.heart-button {
+  background-color: transparent;
+  border: none;
+  width: 16px;
+  height: 16px;
+  background-image: url("https://shorturl.at/pLR35");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.heart-button.filled {
+  background-image: url("https://shorturl.at/clDK2");
+}
+
