@@ -3,69 +3,97 @@
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Results</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
 </head>
 
 <body>
-  <nav class="navbar">
-    <div class="navbar-links">
-      <a href="/">Log Out</a>
-      <a href="/main">Main</a>
-      <a href="/myPlaces">My Places</a>
-    </div>
-  </nav>
+    <img src="Logo.png" alt="Logo" class="logo">
+    <nav class="navbar">
+        <div class="navbar-links">
+        <a href="/">Log Out</a>
+        <a href="/main">Main</a>
+        <a href="/myPlaces">My Places</a>
+        </div>
+    </nav>
 
-  <div class="container">
-    <h1>Recommendations</h1>
-    
-    <div class="activity">
-      <h2>Activity 1</h2>
-      <div class="places">
-        <div class="place">
-          <h3>Place 1</h3>
-          <a href="https://www.google.com/search?q=Place+1" target="_blank">
-            <img src="place1.jpg" alt="Place 1">
-          </a>
-          <button class="heart-button" onclick="toggleFavorite(this)"></button>
-        </div>
-        <div class="place">
-          <h3>Place 2</h3>
-          <a href="https://www.google.com/search?q=Place+2" target="_blank">
-            <img src="place2.jpg" alt="Place 2">
-          </a>
-          <button class="heart-button" onclick="toggleFavorite(this)"></button>
-        </div>
-      </div>
+    <div class="container" id="containerActivities">
+            <h1>בילויים בשבילך</h1>
+            
+            <div class="activity">
+                <h2>סוג בילוי 1</h2>
+                <div class="places">
+                    <div class="place">
+                        <h3>מקום 1</h3>
+                        <button class="heart-button" onclick="toggleFavorite(this)"></button>
+                        <a href="https://www.google.com/search?q=מקום+1" target="_blank">
+                        <img src="https://shorturl.at/uR379" alt="מקום 1">
+                        </a>
+                    </div>
+                    <div class="place">
+                        <h3>מקום 2</h3>
+                        <button class="heart-button" onclick="toggleFavorite(this)"></button>
+                        <a href="https://www.google.com/search?q=מקום+2" target="_blank">
+                        <img src="place2.jpg" alt="מקום 2">
+                        </a>
+                    </div>
+                    <div class="place">
+                        <h3>מקום 3</h3>
+                        <button class="heart-button" onclick="toggleFavorite(this)"></button>
+                        <a href="https://www.google.com/search?q=מקום+3" target="_blank">
+                            <img src="place3.jpg" alt="מקום 3">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="activity">
+                <h2>סוג בילוי 2</h2>
+                <div class="places">
+                    <div class="place">
+                        <h3>מקום 3</h3>
+                        <button class="heart-button" onclick="toggleFavorite(this)"></button>
+                        <a href="https://www.google.com/search?q=מקום+3" target="_blank">
+                            <img src="place3.jpg" alt="מקום 3">
+                        </a>
+                    </div>
+                    <div class="place">
+                        <h3>מקום 4</h3>
+                        <button class="heart-button" onclick="toggleFavorite(this)"></button>
+                        <a href="https://www.google.com/search?q=מקום+4" target="_blank">
+                            <img src="place4.jpg" alt="מקום 4">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity">
+                <h2>סוג בילוי 3</h2>
+                <div class="places">
+                    <div class="place">
+                        <h3>מקום 5</h3>
+                        <button class="heart-button" onclick="toggleFavorite(this)"></button>
+                        <a href="https://www.google.com/search?q=מקום+5" target="_blank">
+                        <img src="place5.jpg" alt="מקום 5">
+                        </a>
+                    </div>
+                    <div class="place">
+                        <h3>מקום 6</h3>
+                        <button class="heart-button" onclick="toggleFavorite(this)"></button>
+                        <a href="https://www.google.com/search?q=מקום+6" target="_blank">
+                            <img src="place6.jpg" alt="מקום 6">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Add more activities here -->
+            
     </div>
-    
-    <div class="activity">
-      <h2>Activity 2</h2>
-      <div class="places">
-        <div class="place">
-          <h3>Place 3</h3>
-          <a href="https://www.google.com/search?q=Place+3" target="_blank">
-            <img src="place3.jpg" alt="Place 3">
-          </a>
-          <button class="heart-button" onclick="toggleFavorite(this)"></button>
-        </div>
-        <div class="place">
-          <h3>Place 4</h3>
-          <a href="https://www.google.com/search?q=Place+4" target="_blank">
-            <img src="place4.jpg" alt="Place 4">
-          </a>
-          <button class="heart-button" onclick="toggleFavorite(this)"></button>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Add more activities here -->
-    
-  </div>
 </body>
 
 </html>

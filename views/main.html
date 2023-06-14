@@ -3,45 +3,46 @@
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Main</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
 </head>
 
 <body>
-  <nav class="navbar">
-    <div class="navbar-links">
-      <a href="/">Log out</a>
-      <a href="/myPlaces">My Places</a>
+    <img src="Logo.png" alt="Logo" class="logo">
+    <nav class="navbar">
+        <div class="navbar-links">
+        <a href="/">Log out</a>
+        <a href="/myPlaces">My Places</a>
+        </div>
+    </nav>
+    <div class="container">
+            <h1>חיפוש בילוי</h1>
+            <form id="main-form" action="/mainForm" method="post">
+                <div class="form-group">
+                    <label for="area">אזור בארץ</label>
+                    <select id="area" name="area">
+                        <!-- Options from the database will be added dynamically here -->
+                        <option>מרכז</option>
+                        <option>חיפה</option>
+                        <option>ירושלים</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="partners">שותפים לבילוי</label>
+                        <select id="partners" name="partners">
+                        <!-- Options from the database will be added dynamically here -->
+                        <option>חברים</option>
+                        <option>משפחה</option>
+                        <option>חבר/ה</option>
+                        </select>
+                </div>
+                <button type="submit">חפש</button>
+            </form>
     </div>
-  </nav>
-  <div class="container">
-    <h1>Main Page</h1>
-    <form id="main-form" action="/mainForm" method="post">
-      <div class="form-group">
-        <label for="area">אזור בארץ</label>
-        <select id="area" name="area">
-          <!-- Options from the database will be added dynamically here -->
-          <option value="option1">אזור 1</option>
-          <option value="option2">אזור 2</option>
-          <option value="option3">אזור 3</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="partners">שותפים</label>
-        <select id="partners" name="partners">
-          <!-- Options from the database will be added dynamically here -->
-          <option value="partner1">שותף 1</option>
-          <option value="partner2">שותף 2</option>
-          <option value="partner3">שותף 3</option>
-        </select>
-      </div>
-      <button type="submit">חפש</button>
-    </form>
-  </div>
 </body>
 
 </html>

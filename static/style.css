@@ -31,6 +31,16 @@ h1 {
   font-size: 24px;
 }
 
+.logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  max-width: 15vw;
+  height: auto;
+  border-radius: 100%;
+}
+
+
 .form-group {
   margin-bottom: 20px;
   width: 100%;
@@ -299,6 +309,8 @@ footer {
 
 .activity {
   margin-bottom: 20px;
+  width: 88%;
+  direction: rtl;
 }
 
 .places {
@@ -310,20 +322,23 @@ footer {
 
 .place {
   text-align: center;
+  width: 100%;
 }
 
 .place h3 {
   margin-bottom: 10px;
+  display: inline;
 }
 
 .place img {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   border-radius: 8px;
 }
 
 .place a {
+  display: block;
   text-decoration: none;
   color: #343a40;
 }
@@ -335,9 +350,10 @@ footer {
 
 /* Additions */
 
-.container {
+#containerActivities {
   background-color: #f2f2f2;
   padding: 20px;
+  direction: rtl;
 }
 
 .activity {
@@ -351,8 +367,6 @@ footer {
   margin-top: 0;
   margin-bottom: 20px;
 }
-
-/* style.css */
 
 .heart-button {
   background-color: transparent;
@@ -368,5 +382,24 @@ footer {
 
 .heart-button.filled {
   background-image: url("https://shorturl.at/clDK2");
+}
+
+.container {
+  background-color: #f2f2f2;
+  padding: 20px;
+  overflow-y: auto; /* Add overflow-y property to enable vertical scrolling */
+}
+
+.activity {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px; /* Add margin-bottom to create space between activities */
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Add a max-height property to limit the height of the container */
+.container {
+  max-height: calc(100vh - 120px); /* Adjust the value based on your needs */
 }
 
