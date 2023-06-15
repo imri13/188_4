@@ -233,9 +233,6 @@ footer {
   background-color: #1c1f23;
 }
 
-
-/* Additions for the navbar */
-
 .navbar {
   position: absolute;
   top: 10px;
@@ -260,6 +257,23 @@ footer {
 
 .navbar-links a:hover {
   background-color: #1c1f23;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 3px;
+  }
+
+  .navbar-links {
+    gap: 5px;
+  }
+
+  .navbar-links a, .home-link {
+    padding: 3px;
+    font-size: 14px;
+  }
+ 
 }
 
 
@@ -302,7 +316,6 @@ footer {
   padding-right: 20px; 
 }
 
-/* Additions for the results page */
 
 .activity {
   margin-bottom: 20px;
@@ -396,4 +409,3 @@ footer {
 .container {
   max-height: calc(100vh - 120px); 
 }
-
