@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
+const CRUD = require('./DB/CRUD');
 //const SQL = require('./DB/DB');
 const port = 2002;
 app.use(express.static(path.join(__dirname, "static")));
@@ -42,6 +43,27 @@ app.post('/formSignup', (req,res)=>{
 app.post('/mainForm', (req,res)=>{
     res.sendFile(path.join(__dirname, "views/results.html"));
 });
+
+
+//create DB
+
+//Users table
+app.get('/createTableUsers', CRUD.createTableUsers);
+app.get('/insertUsers', CRUD.insertDataUsers);
+app.get('/dropTableUsers', CRUD.dropTableUsers);
+
+//Types table
+app.get('/createTableTypes', CRUD.createTableTypes);
+app.get('/insertTypes', CRUD.insertDataTypes);
+app.get('/dropTableTypes', CRUD.dropTableTypes);
+
+//Areas table
+app.get('/createTableAreas', CRUD.createTableAreas);
+app.get('/insertAreas', CRUD.insertDataAreas);
+app.get('/dropTableAreas', CRUD.dropTableAreas);
+
+app.get('/selectAll', CRUD.selectAll);
+
 
 //set up listen
 app.listen(port, ()=>{
