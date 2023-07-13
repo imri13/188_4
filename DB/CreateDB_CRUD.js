@@ -187,7 +187,7 @@ const dropTablePartners = (req,res)=>{
 
 // Places Table
 const createTablePlaces = (req,res)=>{
-    const Q1 = 'CREATE TABLE IF NOT EXISTS `Places` (placeID Int NOT NULL PRIMARY KEY, placeName varchar(255), area varchar(255), typeID Int, link varchar(255), image varchar(255) ) ENGINE=InnoDB DEFAULT CHARSET=utf8';    
+    const Q1 = 'CREATE TABLE IF NOT EXISTS `Places` (placeID Int NOT NULL PRIMARY KEY, placeName varchar(255), area varchar(255), typeID Int, link varchar(500), image varchar(20000) ) ENGINE=InnoDB DEFAULT CHARSET=utf8';    
     SQL.query(Q1, (err,mysqlres)=>{
         if (err) {
             console.log(err);
@@ -308,7 +308,7 @@ const dropTableFavorites = (req,res)=>{
 
 //בינתיים לבדיקות    
 const selectAll = (req,res)=>{
-    const Q5 = 'select * from `Favorites`;';    
+    const Q5 = 'select * from `Users`;';    
     SQL.query(Q5, (err,mysqlres)=>{
         if (err) {
             console.log(err);

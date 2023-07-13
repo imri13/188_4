@@ -4,11 +4,14 @@ const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
 const DB_CRUD = require('./DB/CreateDB_CRUD');
+const CRUD = require('./DB/CRUD');
+const cookie = require('cookie-parser');
 //const SQL = require('./DB/DB');
 const port = 3000;
 app.use(express.static(path.join(__dirname, "static")));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(cookie());
 app.set('views',path.join(__dirname, "views"));
 app.set('view engine', 'pug');
 
@@ -26,9 +29,7 @@ app.get('/login', (req,res)=>{
     res.render('login');
 });
 
-app.post('/formLogin', (req,res)=>{
-    res.redirect('/main');
-});
+app.post('/formLogin', CRUD.validateUser);
 
 app.get('/main', (req,res)=>{
     res.render('main');
@@ -38,9 +39,7 @@ app.get('/myPlaces', (req,res)=>{
     res.render('myPlaces');
 });
 
-app.post('/formSignup', (req,res)=>{
-    res.redirect('/login');
-});
+app.post('/formSignup', CRUD.createNewUser);
 
 app.post('/mainForm', (req,res)=>{
     res.render('results');
