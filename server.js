@@ -5,10 +5,12 @@ const app = express();
 const bodyParser = require('body-parser');
 const CRUD = require('./DB/CRUD');
 //const SQL = require('./DB/DB');
-const port = 2002;
+const port = 3000;
 app.use(express.static(path.join(__dirname, "static")));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
+app.set('views',path.join(__dirname, "views"));
+app.set('view engine', 'pug');
 
 
 //routing
