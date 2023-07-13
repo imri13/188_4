@@ -15,27 +15,27 @@ app.set('view engine', 'pug');
 
 //routing
 app.get('/', (req,res)=>{
-    res.sendFile(path.join(__dirname, "views/index.html"));
+    res.render('index');
 });
 
 app.get('/signUp', (req,res)=>{
-    res.sendFile(path.join(__dirname, "views/signUp.html"));
+    res.render('signUp');
 });
 
 app.get('/login', (req,res)=>{
-    res.sendFile(path.join(__dirname, "views/login.html"));
+    res.render('login');
 });
 
 app.post('/formLogin', (req,res)=>{
-    res.sendFile(path.join(__dirname, "views/main.html"));
+    res.redirect('/main');
 });
 
 app.get('/main', (req,res)=>{
-    res.sendFile(path.join(__dirname, "views/main.html"));
+    res.render('main');
 });
 
 app.get('/myPlaces', (req,res)=>{
-    res.sendFile(path.join(__dirname, "views/myPlaces.html"));
+    res.render('myPlaces');
 });
 
 app.post('/formSignup', (req,res)=>{
@@ -43,7 +43,7 @@ app.post('/formSignup', (req,res)=>{
 });
 
 app.post('/mainForm', (req,res)=>{
-    res.sendFile(path.join(__dirname, "views/results.html"));
+    res.render('results');
 });
 
 

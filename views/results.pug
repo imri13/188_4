@@ -1,0 +1,53 @@
+extends template 
+block content
+ nav.navbar
+    .navbar-links
+     a(href='/') Log Out
+     a(href='/main') Search
+     a(href='/myPlaces') Favorites
+ #containerActivities.container
+    h1 בילויים בשבילך
+    .activity
+        h2 באולינג
+        .places
+            .place
+                h3 באולינג סיטי
+                button.heart-button(onclick='toggleFavorite(this)')
+                a(href='https://www.citybowling.co.il/', target='_blank')
+                img(src='https://shorturl.at/uR379', alt='מקום 1')
+            .place
+                h3 באולינג ריפליי
+                button.heart-button(onclick='toggleFavorite(this)')
+                a(href='https://replayb.co.il/', target='_blank')
+                img(src='https://shorturl.at/stwEK', alt='מקום 2')
+            .place
+                h3 מקום 3
+                button.heart-button(onclick='toggleFavorite(this)')
+                a(href='https://www.google.com/search?q=מקום+3', target='_blank')
+                img(src='place3.jpg', alt='מקום 3')
+    .activity
+        h2 סרט
+        .places
+            .place
+                h3 יס פלאנט
+                button.heart-button(onclick='toggleFavorite(this)')
+                a(href='https://shorturl.at/iGHPT', target='_blank')
+                img(src='https://shorturl.at/uBFK0', alt='מקום 3')
+            .place
+                h3 סינמה סיטי
+                button.heart-button(onclick='toggleFavorite(this)')
+                a(href='https://www.cinema-city.co.il/', target='_blank')
+                img(src='https://shorturl.at/bvBT2', alt='מקום 4')
+    .activity
+        h2 סוג בילוי 3
+        .places
+            .place
+                h3 מקום 5
+                button.heart-button(onclick='toggleFavorite(this)')
+                a(href='https://www.google.com/search?q=מקום+5', target='_blank')
+                img(src='place5.jpg', alt='מקום 5')
+            .place
+                h3 מקום 6
+                button.heart-button(onclick='toggleFavorite(this)')
+                a(href='https://www.google.com/search?q=מקום+6', target='_blank')
+                img(src='place6.jpg', alt='מקום 6')

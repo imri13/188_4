@@ -1,0 +1,21 @@
+extends template 
+block content
+    a.home-link(href='/') Home
+    .container
+      h1 Sign Up
+      form#signup-form(action='/formSignup', method='POST')
+        .form-group
+          label(for='userName') Name
+          input#userName(type='text', name='userName', pattern='[a-zA-Z\u0590-\u05FF\s]*', title='Enter only letters in Hebrew or English', required='')
+        .form-group
+          label(for='userEmail') Email
+          input#userEmail(type='email', name='userEmail', required='')
+        .form-group
+          label(for='userPassword') Password
+          .password-wrapper
+            input#userPassword(type='password', name='userPassword', required='')
+            i.toggle-password.fas.fa-eye(onmousedown='togglePasswordVisibility(event)', onmouseup='togglePasswordVisibility(event)')
+        button(type='submit') Sign Up
+      .login-container
+        p.login-text Already have an account?
+        button#login-button(onclick='loginButtonFunc()') Login

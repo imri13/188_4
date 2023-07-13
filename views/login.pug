@@ -1,0 +1,18 @@
+extends template 
+block content 
+ a.home-link(href='/') Home
+ .container
+    h1 Login
+    form#login-form(action='/formLogin', method='post')
+        .form-group
+          label(for='userEmail') Email
+          input#userEmail(type='email', name='userEmail', required='')
+        .form-group
+          label(for='userPassword') Password
+          .password-wrapper
+            input#userPassword(type='password', name='userPassword', required='')
+            i.toggle-password.fas.fa-eye(onmousedown='togglePasswordVisibility(event)', onmouseup='togglePasswordVisibility(event)')
+        button(type='submit') Login
+    .signup-container
+        p.signup-text Don't have an account?
+        button#signup-button(onclick='signupButtonFunc()') Sign Up
