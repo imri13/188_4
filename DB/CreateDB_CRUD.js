@@ -199,7 +199,7 @@ const createTableFavorites = (req,res)=>{
             res.status(400).send(err);
             return;
         }
-        res.send("hi - All tables created");
+        res.redirect('/home');
     })};
 
 const dropTableFavorites = (req,res)=>{

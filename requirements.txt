@@ -1,0 +1,86 @@
+Part C – Requirements
+Packages:
+express 
+path 
+body-parser 
+mysql2 
+cookie-parser
+csvtojson 
+pug
+
+Drop all tables path:
+ '/dropAll'
+
+Create tables - Syntax:
+const createTableUsers = (req,res)=>{
+const Q1 = 'CREATE TABLE IF NOT EXISTS `Users` (name varchar(255) NOT NULL, email 
+varchar(255) NOT NULL PRIMARY KEY, password Int NOT NULL) ENGINE=InnoDB DEFAULT 
+CHARSET=utf8';    
+    SQL.query(Q1, (err,mysqlres)=>{
+        if (err) {
+            console.log(err);
+            res.status(400).send(err);
+            return;
+        }
+        res.redirect("/insertUsers");
+    })};
+const createTableTypes = (req,res)=>{
+    const Q1 = 'CREATE TABLE IF NOT EXISTS `Types` (typeID Int NOT NULL PRIMARY KEY, 
+typeName varchar(255) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8';    
+    SQL.query(Q1, (err,mysqlres)=>{
+        if (err) {
+            console.log(err);
+            res.status(400).send(err);
+            return;
+        }
+        res.redirect("/insertTypes");
+    })};
+
+const createTableAreas = (req,res)=>{
+    const Q1 = 'CREATE TABLE IF NOT EXISTS `Areas` (area varchar(255) NOT NULL PRIMARY 
+KEY) ENGINE=InnoDB DEFAULT CHARSET=utf8';    
+    SQL.query(Q1, (err,mysqlres)=>{
+        if (err) {
+            console.log(err);
+            res.status(400).send(err);
+            return;
+        }
+        res.redirect("/insertAreas");
+    })};
+const createTablePlaces = (req,res)=>{
+    const Q1 = 'CREATE TABLE IF NOT EXISTS `Places` (placeID Int NOT NULL PRIMARY KEY, 
+placeName varchar(255), area varchar(255), typeID Int, link varchar(500), image 
+varchar(20000) ) ENGINE=InnoDB DEFAULT CHARSET=utf8';    
+    SQL.query(Q1, (err,mysqlres)=>{
+        if (err) {
+            console.log(err);
+            res.status(400).send(err);
+            return;
+        }
+        res.redirect("/insertPlaces");
+    })};
+const createTablePartnersInPlace = (req,res)=>{
+    const Q1 = 'CREATE TABLE IF NOT EXISTS `PartnersInPlace` (placeID Int NOT NULL, partner 
+varchar(255) NOT NULL, PRIMARY KEY (placeID, partner) )  ENGINE=InnoDB DEFAULT 
+CHARSET=utf8';    
+    SQL.query(Q1, (err,mysqlres)=>{
+        if (err) {
+            console.log(err);
+            res.status(400).send(err);
+            return;
+        }
+        res.redirect("/insertPartnersInPlace");
+    })};
+const createTableFavorites = (req,res)=>{
+    const Q1 = 'CREATE TABLE IF NOT EXISTS `Favorites` (email varchar(255) NOT NULL, 
+placeID Int NOT NULL, PRIMARY KEY (email, placeID) ) ENGINE=InnoDB DEFAULT 
+CHARSET=utf8';    
+    SQL.query(Q1, (err,mysqlres)=>{
+        if (err) {
+            console.log(err);
+            res.status(400).send(err);
+            return;
+        }
+        res.send("hi - table created");
+    })};
+

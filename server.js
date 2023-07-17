@@ -15,9 +15,13 @@ app.use(cookie());
 app.set('views',path.join(__dirname, "views"));
 app.set('view engine', 'pug');
 
-
 //routing
+
 app.get('/', (req,res)=>{
+    res.redirect('/createAll');
+});
+
+app.get('/home', (req,res)=>{
     res.render('index');
 });
 
@@ -33,7 +37,7 @@ app.get('/logOut', (req,res)=>{
     res.clearCookie('email');
     res.clearCookie('userName');
     res.clearCookie('placeID');
-    res.redirect('/');
+    res.redirect('home');
 });
 
 app.post('/formLogin', CRUD.validateUser);
