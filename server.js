@@ -29,44 +29,44 @@ app.get('/login', (req,res)=>{
     res.render('login');
 });
 
+app.get('/logOut', (req,res)=>{
+    res.clearCookie('email');
+    res.clearCookie('userName');
+    res.clearCookie('placeID');
+    res.redirect('/');
+});
+
 app.post('/formLogin', CRUD.validateUser);
 
-app.get('/main', (req,res)=>{
-    res.render('main');
-});
+app.get('/main', CRUD.areaOptions);
 
-app.get('/myPlaces', (req,res)=>{
-    res.render('myPlaces');
-});
+app.get('/favorites', CRUD.favorites);
 
 app.post('/formSignup', CRUD.createNewUser);
+app.post('/mainForm', CRUD.findPlaces);
 
-app.post('/mainForm', (req,res)=>{
-    res.render('results');
-});
+app.get('/insertFavorite', CRUD.insertNewFavorite);
+app.get('/removeFavorite', CRUD.removeFavorite);
+app.get('/selectFavorites', CRUD.selectFavorites);
+
 
 
 //create DB
-
+app.get('/createAll', (req,res)=>{
+    res.redirect('/createTableUsers');
+});
+app.get('/dropAll', (req,res)=>{
+    res.redirect('/dropTableUsers');
+});
 //Users table
 app.get('/createTableUsers', DB_CRUD.createTableUsers);
 app.get('/insertUsers', DB_CRUD.insertDataUsers);
 app.get('/dropTableUsers', DB_CRUD.dropTableUsers);
 
-//Types table
-app.get('/createTableTypes', DB_CRUD.createTableTypes);
-app.get('/insertTypes', DB_CRUD.insertDataTypes);
-app.get('/dropTableTypes', DB_CRUD.dropTableTypes);
-
 //Areas table
 app.get('/createTableAreas', DB_CRUD.createTableAreas);
 app.get('/insertAreas', DB_CRUD.insertDataAreas);
 app.get('/dropTableAreas', DB_CRUD.dropTableAreas);
-
-//Partners table
-app.get('/createTablePartners', DB_CRUD.createTablePartners);
-app.get('/insertPartners', DB_CRUD.insertDataPartners);
-app.get('/dropTablePartners', DB_CRUD.dropTablePartners);
 
 //Places table
 app.get('/createTablePlaces', DB_CRUD.createTablePlaces);

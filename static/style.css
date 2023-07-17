@@ -33,7 +33,7 @@ h1 {
   position: absolute;
   top: 10px;
   left: 10px;
-  max-width: 10vw;
+  max-width: 20vw;
   height: auto;
   border-radius: 100%;
 }
@@ -341,7 +341,7 @@ footer {
 .place img {
   width: 100px;
   height: 100px;
-  object-fit: cover;
+  object-fit:fill;
   border-radius: 8px;
 }
 
@@ -361,7 +361,6 @@ footer {
   direction: rtl;
   max-width: 600px;
   width: 100%;
-  background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -382,8 +381,8 @@ footer {
 .heart-button {
   background-color: transparent;
   border: none;
-  width: 16px;
-  height: 16px;
+  width: 25px;
+  height: 25px;
   background-image: url("https://shorturl.at/pLR35");
   background-repeat: no-repeat;
   background-position: center;
@@ -409,7 +408,6 @@ footer {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Add a max-height property to limit the height of the container */
 .container {
   max-height: calc(100vh - 120px); 
 }
@@ -418,10 +416,9 @@ footer {
   display: flex;
   position: absolute;
   background-color: #f2f2f2;
-  top: 5vh;
+  top: 1vh;
   border-radius: 4px;
   z-index: 1;
-
   animation: fadeIn 1.5s;
   animation-iteration-count: 1;
   animation-delay: 0.5s;
@@ -432,4 +429,8 @@ footer {
 @keyframes fadeIn {
   from {opacity: 1;}
   to {opacity:0 ;}
+}
+
+.placeIDs {
+  display: none;
 }

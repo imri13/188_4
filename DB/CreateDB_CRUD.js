@@ -4,7 +4,7 @@ const csv = require('csvtojson');
 
 // Users Table
 const createTableUsers = (req,res)=>{
-    const Q1 = 'CREATE TABLE IF NOT EXISTS `Users` (name varchar(255) NOT NULL, email varchar(255) NOT NULL PRIMARY KEY, password Int NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8';    
+    const Q1 = 'CREATE TABLE IF NOT EXISTS `Users` (name varchar(255) NOT NULL, email varchar(255) NOT NULL PRIMARY KEY, password varchar(255) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8';    
     SQL.query(Q1, (err,mysqlres)=>{
         if (err) {
             console.log(err);
@@ -34,7 +34,7 @@ const insertDataUsers = (req,res)=>{
             });
         }    
     });
-    res.send("Data inserted into table");
+    res.redirect("/createTableAreas");
  };
 
 const dropTableUsers = (req,res)=>{
@@ -45,53 +45,7 @@ const dropTableUsers = (req,res)=>{
             res.status(400).send(err);
             return;
         }
-        res.send("hi - table dropped");
-        return;
-    })};
-
-// Types Table
-const createTableTypes = (req,res)=>{
-    const Q1 = 'CREATE TABLE IF NOT EXISTS `Types` (typeID Int NOT NULL PRIMARY KEY, typeName varchar(255) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8';    
-    SQL.query(Q1, (err,mysqlres)=>{
-        if (err) {
-            console.log(err);
-            res.status(400).send(err);
-            return;
-        }
-        res.redirect("/insertTypes");
-    })};
-
-const insertDataTypes = (req,res)=>{
-    const csvPath = path.join(__dirname, "types.csv");
-    csv().fromFile(csvPath).then((jsonObj)=>{
-        console.log(jsonObj);
-        for (let i = 0; i < jsonObj.length; i++) {
-            const element = jsonObj[i];
-            console.log(element);
-            const NewCsvData = {
-                typeID: element.typeID,
-                typeName: element.typeName
-            }; 
-            const Q4 = "insert into Types set ?";
-            SQL.query(Q4, NewCsvData, (err, mysqlres)=>{
-            if (err) {
-                throw err
-            }
-            });
-        }    
-    });
-    res.send("Data inserted into table");
-};
-
-const dropTableTypes = (req,res)=>{
-    const Q2 = 'drop TABLE `Types`;';    
-    SQL.query(Q2, (err,mysqlres)=>{
-        if (err) {
-            console.log(err);
-            res.status(400).send(err);
-            return;
-        }
-        res.send("hi - table dropped");
+        res.redirect("/dropTableAreas");
         return;
     })};
 
@@ -125,7 +79,7 @@ const insertDataAreas = (req,res)=>{
             });
         }    
     });
-    res.send("Data inserted into table");
+    res.redirect("/createTablePlaces");
 };
 
 const dropTableAreas = (req,res)=>{
@@ -136,58 +90,13 @@ const dropTableAreas = (req,res)=>{
             res.status(400).send(err);
             return;
         }
-        res.send("hi - table dropped");
-        return;
-    })};
-
-// Partners Table
-const createTablePartners = (req,res)=>{
-    const Q1 = 'CREATE TABLE IF NOT EXISTS `Partners` (partner varchar(255) NOT NULL PRIMARY KEY) ENGINE=InnoDB DEFAULT CHARSET=utf8';    
-    SQL.query(Q1, (err,mysqlres)=>{
-        if (err) {
-            console.log(err);
-            res.status(400).send(err);
-            return;
-        }
-        res.redirect("/insertPartners");
-    })};
-
-const insertDataPartners = (req,res)=>{
-    const csvPath = path.join(__dirname, "partners.csv");
-    csv().fromFile(csvPath).then((jsonObj)=>{
-        console.log(jsonObj);
-        for (let i = 0; i < jsonObj.length; i++) {
-            const element = jsonObj[i];
-            console.log(element);
-            const NewCsvData = {
-                partner: element.partner
-            }; 
-            const Q4 = "insert into Partners set ?";
-            SQL.query(Q4, NewCsvData, (err, mysqlres)=>{
-            if (err) {
-                throw err
-            }
-            });
-        }    
-    });
-    res.send("Data inserted into table");
-};
-
-const dropTablePartners = (req,res)=>{
-    const Q2 = 'drop TABLE `Partners`;';    
-    SQL.query(Q2, (err,mysqlres)=>{
-        if (err) {
-            console.log(err);
-            res.status(400).send(err);
-            return;
-        }
-        res.send("hi - table dropped");
+        res.redirect("/dropTablePlaces");
         return;
     })};
 
 // Places Table
 const createTablePlaces = (req,res)=>{
-    const Q1 = 'CREATE TABLE IF NOT EXISTS `Places` (placeID Int NOT NULL PRIMARY KEY, placeName varchar(255), area varchar(255), typeID Int, link varchar(500), image varchar(20000) ) ENGINE=InnoDB DEFAULT CHARSET=utf8';    
+    const Q1 = 'CREATE TABLE IF NOT EXISTS `Places` (placeID Int NOT NULL PRIMARY KEY, placeName varchar(255), area varchar(255), type varchar(255), link varchar(500), image varchar(20000) ) ENGINE=InnoDB DEFAULT CHARSET=utf8';    
     SQL.query(Q1, (err,mysqlres)=>{
         if (err) {
             console.log(err);
@@ -208,7 +117,7 @@ const insertDataPlaces = (req,res)=>{
                 placeID: element.placeID,
                 placeName: element.placeName,
                 area: element.area,
-                typeID: element.typeID,
+                type: element.type,
                 link: element.link,
                 image: element.image
             }; 
@@ -220,7 +129,7 @@ const insertDataPlaces = (req,res)=>{
             });
         }    
     });
-    res.send("Data inserted into table");
+    res.redirect("/createTablePartnersInPlace");
 };
 
 const dropTablePlaces = (req,res)=>{
@@ -231,7 +140,7 @@ const dropTablePlaces = (req,res)=>{
             res.status(400).send(err);
             return;
         }
-        res.send("hi - table dropped");
+        res.redirect("/dropTablePartnersInPlace");
         return;
     })};
 
@@ -266,7 +175,7 @@ const insertDataPartnersInPlace = (req,res)=>{
             });
         }    
     });
-    res.send("Data inserted into table");
+    res.redirect("/createTableFavorites");
 };
 
 const dropTablePartnersInPlace = (req,res)=>{
@@ -277,7 +186,7 @@ const dropTablePartnersInPlace = (req,res)=>{
             res.status(400).send(err);
             return;
         }
-        res.send("hi - table dropped");
+        res.redirect("/dropTableFavorites");
         return;
     })};
 
@@ -290,7 +199,7 @@ const createTableFavorites = (req,res)=>{
             res.status(400).send(err);
             return;
         }
-        res.send("hi - table created");
+        res.send("hi - All tables created");
     })};
 
 const dropTableFavorites = (req,res)=>{
@@ -301,7 +210,7 @@ const dropTableFavorites = (req,res)=>{
             res.status(400).send(err);
             return;
         }
-        res.send("hi - table dropped");
+        res.send("hi - All tables dropped");
         return;
     })};
 
@@ -320,9 +229,7 @@ const selectAll = (req,res)=>{
     })};
 
 module.exports = {createTableUsers, insertDataUsers, dropTableUsers,
-                  createTableTypes, insertDataTypes, dropTableTypes,
                   createTableAreas, insertDataAreas, dropTableAreas,
-                  createTablePartners, insertDataPartners, dropTablePartners,
                   createTablePlaces, insertDataPlaces, dropTablePlaces,
                   createTablePartnersInPlace, insertDataPartnersInPlace, dropTablePartnersInPlace,
                   createTableFavorites, dropTableFavorites, selectAll};

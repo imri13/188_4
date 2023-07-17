@@ -2,18 +2,16 @@ extends template
 block content 
     nav.navbar
         .navbar-links
-            a(href='/') Log out
-            a(href='/myPlaces') Favorites
+            a(href='/logOut') Log out
+            a(href='/favorites') Favorites
     .container
         h1 חיפוש בילוי
         form#main-form(action='/mainForm', method='post')
             .form-group
                 label(for='area') אזור בארץ
                 select#area(name='area')
-                    // Options from the database will be added dynamically here
-                    option מרכז
-                    option חיפה
-                    option ירושלים
+                    each n in V1 
+                        option=n.area
             .form-group
                 label(for='partners') שותפים לבילוי
                 select#partners(name='partners')

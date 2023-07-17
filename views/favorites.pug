@@ -1,12 +1,12 @@
 extends template 
 block content
- nav.navbar
+  nav.navbar
     .navbar-links
-     a(href='/main') Search
-     a(href='/logOut') Log out
-     a(href='/favorites') Favorites
- #containerActivities.container
-    h1 בילויים בשבילך
+        a(href='/logOut') Log out
+        a(href='/main') Search
+  #containerActivities.container
+    h1 Favorites
+        // סוג בילוי 1
     .activity
         each n in V2 
             h2=n.type
@@ -14,9 +14,9 @@ block content
                 each t in V1
                     if t.type==n.type 
                         .place
-                            p(class="placeIDs", id=t.placeID)=t.placeID
+                            p(class="placeIDs", id="placeID1", name="placeID")=t.placeID
                             h3=t.placeName
                             a(href=t.link , target='_blank')
                                 img(src=t.image , alt=t.placeName)
-                            button.heart-button(disabled=t.disabled, onclick='addFavorite(this)', data-placeID=t.placeID)
+                            button.heart-button(class="filled", onclick='removeFavorite(this)', data-placeID=t.placeID)
                 br

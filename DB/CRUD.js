@@ -35,33 +35,122 @@ const validateUser = (req,res)=>{
             return;
         }
         res.cookie("userName", mysqlres[0].name);
+        res.cookie("email", loginUser);
         res.redirect('/main');
         return;
     });};
 
 
 const insertNewFavorite = (req,res)=>{
-    //res.send(req.query);
-    // validate info exists
-
-    // pull info from req.query to json object
     const NewFav = {
-        email: req.query.UserEmail, 
-        placeID: req.query.placeID
+        email: req.cookies.email, 
+        placeID: req.cookies.placeID
     };
-    // run insert query
+    console.log(NewFav.placeID);
     const Q1 = "INSERT INTO Favorites SET ?";
-    sql.query(Q1, NewFav, (err, mysqlres)=>{
+    SQL.query(Q1, NewFav, (err, mysqlres)=>{
         if (err) {
             console.log(err);
             res.send("something went wrong");    
             return;
         }
-        //res.send("thank you!");
-        //res.sendFile(path.join(__dirname, "../views/search.html"));
-        //res.cookie("nameUser", req.query.UserName);
-        res.redirect("/activUser");
+        console.log("favorite inserted", NewFav);
+        res.clearCookie('placeID');
         return;
     });};
 
-module.exports = {insertNewFavorite, createNewUser, validateUser};
+const removeFavorite = (req,res)=>{
+    const NewFav = {
+        email: req.cookies.email, 
+        placeID: req.cookies.placeID
+    };
+    console.log(NewFav.placeID);
+    const Q1 = "DELETE FROM Favorites WHERE email = ? AND placeID = ?";
+    SQL.query(Q1, [NewFav.email, NewFav.placeID], (err, mysqlres)=>{
+        if (err) {
+            console.log(err);
+            res.send("something went wrong");    
+            return;
+        }
+        console.log("favorite removed", NewFav);
+        res.clearCookie('placeID');
+        res.redirect('/favorites');
+        return;
+    });};
+
+const areaOptions = (req,res)=>{
+    const Q1 = "SELECT * FROM Areas";
+    SQL.query(Q1, (err, mysqlres)=>{
+        if (err) {
+            console.log(err);
+            res.send("something went wrong");    
+            return;
+        }
+        res.render('main', {V1:mysqlres});
+        return;
+    });};
+
+const findPlaces = (req,res)=>{
+    const searchData = [req.body.area, req.body.partners];
+    const Q8 = "SELECT P.placeID, P.placeName, P.type, P.link, P.image FROM Places AS P JOIN PartnersInPlace AS X ON P.placeID=X.placeID WHERE P.area = ? AND X.partner = ?";
+    const Q9 = "SELECT DISTINCT Types.type FROM (SELECT P.placeID, P.placeName, P.type, P.link, P.image FROM Places AS P JOIN PartnersInPlace AS X ON P.placeID=X.placeID WHERE P.area = ? AND X.partner = ?) AS Types"
+    SQL.query(Q8, searchData, (err, mysqlres)=>{
+        if (err) {
+            console.log(err);
+            res.send("something went wrong");    
+            return;
+        }
+        var X1 = {V1:mysqlres, V2: ''};
+        SQL.query(Q9, searchData, (err, mysqlres)=>{
+            if (err) {
+                console.log(err);
+                res.send("something went wrong");    
+                return;
+            }
+            X1.V2=mysqlres;
+            console.log(X1);
+            res.render('results', X1);
+            return;
+        });
+        return;
+    });};
+
+const favorites = (req,res)=>{
+    const searchData = req.cookies.email;
+    const Q8 = "SELECT P.placeID, P.placeName, P.type, P.link, P.image FROM Places AS P WHERE P.placeID IN (SELECT placeID FROM Favorites WHERE email = ?)";
+    const Q9 = "SELECT DISTINCT Types.type FROM (SELECT P.placeName, P.type, P.link, P.image FROM Places AS P WHERE P.placeID IN (SELECT placeID FROM Favorites WHERE email = ?)) AS Types"
+    SQL.query(Q8, searchData, (err, mysqlres)=>{
+        if (err) {
+            console.log(err);
+            res.send("something went wrong");    
+            return;
+        }
+        var X1 = {V1:mysqlres, V2: ''};
+        SQL.query(Q9, searchData, (err, mysqlres)=>{
+            if (err) {
+                console.log(err);
+                res.send("something went wrong");    
+                return;
+            }
+            X1.V2=mysqlres;
+            console.log(X1);
+            res.render('favorites', X1);
+            return;
+        });
+        return;
+    });};
+
+const selectFavorites = (req,res)=>{
+    const searchData = req.cookies.email;
+    const Q1 = "SELECT placeID FROM Favorites WHERE email = ?";
+    SQL.query(Q1, searchData, (err, mysqlres)=>{
+        if (err) {
+            console.log(err);
+            res.send("something went wrong");    
+            return;
+        }
+        res.json(mysqlres);
+        return;
+    });};
+
+module.exports = {selectFavorites, insertNewFavorite, removeFavorite, createNewUser, validateUser, areaOptions, findPlaces, favorites};
