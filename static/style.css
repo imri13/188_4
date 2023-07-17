@@ -413,3 +413,22 @@ footer {
 .container {
   max-height: calc(100vh - 120px); 
 }
+
+#wrongMessage {
+  display: flex;
+  position: absolute;
+  background-color: #f2f2f2;
+  border-radius: 4px;
+  z-index: 1;
+
+  animation: fadeIn 1.5s;
+  animation-iteration-count: 1;
+  animation-delay: 0.5s;
+}
+
+/* Add animation (fade in the popup) */
+
+@keyframes fadeIn {
+  from {opacity: 1;}
+  to {opacity:0 ;}
+}

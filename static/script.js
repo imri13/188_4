@@ -26,4 +26,12 @@ function togglePasswordVisibility(event) {
 function toggleFavorite(button) {
     button.classList.toggle("filled");
 }
-    
+
+document.addEventListener("DOMContentLoaded", function() {
+  var wrongMessage = document.getElementById("wrongMessage");
+  wrongMessage.style.display = "block";
+
+  setTimeout(function() {
+    wrongMessage.style.display = "none";
+  }, 2000);
+});

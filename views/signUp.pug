@@ -1,11 +1,13 @@
 extends template 
 block content
+    div(id="wrongMessage")
+      h2 #{V1}
     a.home-link(href='/') Home
     .container
       h1 Sign Up
       form#signup-form(action='/formSignup', method='POST')
         .form-group
-          label(for='userName') Name
+          label(for='userName') First Name
           input#userName(type='text', name='userName', pattern='[a-zA-Z\u0590-\u05FF\s]*', title='Enter only letters in Hebrew or English', required='')
         .form-group
           label(for='userEmail') Email

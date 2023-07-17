@@ -13,7 +13,7 @@ const createNewUser = (req,res)=>{
     SQL.query(Q1, NewSignUp, (err, mysqlres)=>{
         if (err) {
             console.log(err);
-            res.send("something went wrong");    
+            res.render("signUp", { V1: "Email already exists" });    
             return;
         }
         res.redirect("/login");
@@ -30,11 +30,12 @@ const validateUser = (req,res)=>{
             res.send("something went wrong");    
             return;
         }
-        res.cookie("userName", mysqlres[0].name);
-        if (loginPassword == mysqlres[0].password) {
-            res.redirect('/main');
+        if (mysqlres.length == 0 || loginPassword != mysqlres[0].password) {
+            res.render("login", { V1: "Wrong Email or Password" });
+            return;
         }
-        res.render("login", {V1: "Wrong Email or Password"});
+        res.cookie("userName", mysqlres[0].name);
+        res.redirect('/main');
         return;
     });};
 
